@@ -541,7 +541,7 @@ button.kpi { cursor: pointer; } button.kpi:hover { border-color: var(--accent-li
 
   // ---------- list ----------
   function itemHtml(r) {
-    return '<button type="button" class="item" data-id="' + esc(r.id) + '"><span style="background:var(--r' + r.score + ')"></span><span class="body"><span class="top">' + scoreTag(r.score) + '<span>' + thDate(r.createdAt) + '</span><span>' + esc(branchName(r.branch)) + '</span>' +
+    return '<button type="button" class="item" data-id="' + esc(r.id) + '"><span style="background:var(--r' + r.score + ')"></span><span class="body"><span class="top">' + scoreTag(r.score) + '<span>' + thDate(r.createdAt, true) + '</span><span>' + esc(branchName(r.branch)) + '</span>' +
       (r.follow === FOLLOW.WAIT ? '<span class="pill p-wait">รอติดต่อ</span>' : r.follow === FOLLOW.DONE ? '<span class="pill p-done">ติดต่อแล้ว</span>' : '') + (r.wantCall ? '<span class="pill p-wait" style="background:none;border:1px solid var(--line)">ขอให้ติดต่อกลับ</span>' : '') + '<span class="g"></span><span class="mono">' + esc(r.id) + '</span></span>' +
       '<span class="tx">' + (r.comment ? esc(r.comment) : '<span class="muted">(ไม่ได้เขียนความคิดเห็น)</span>') + '</span>' + ((r.aspects || []).length ? '<span class="as">' + (r.score >= 4 ? 'ประทับใจ: ' : 'ควรปรับ: ') + esc(r.aspects.join(', ')) + '</span>' : '') + '</span></button>';
   }
